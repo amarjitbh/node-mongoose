@@ -18,8 +18,31 @@ usersController.list = function(req,res){
     });
 }
 
-usersController.add = function (req,res) {
+usersController.create = function (req,res) {
 
-    console.log('add-users');
+    res.render('../views/add',{'title' : 'ADD-USER'});
+}
+usersController.save = function (req,res){
+    var usersData = new users(req.body);
+    usersData.save(function (err){
+       if(err){
+           console.log(err);
+       }else{
+           console.log("user-successfully created");
+           res.redirect('/users');
+       }
+    });
+}
+
+usersController.edit = function (req,res,next) {
+    console.log(req.params.user_id);
+    users.findOne({_id : req.params.user_id}).exec(function (err,user) {
+        if(err){
+            console.log('errors='+err);
+        }else{
+            console.log(user);
+            res.render('../views/add',{'title' : 'ADD-USER','user' : user});
+        }
+    })
 }
 module.exports = usersController;
