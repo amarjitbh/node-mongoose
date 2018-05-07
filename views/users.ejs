@@ -1,1 +1,41 @@
-<%= user[1].username %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <!--<link rel="stylesheet" href="/../css/style.css">-->
+</head>
+<body>
+<div class="data-table">
+    <a href="add">Add</a>
+    <table border="1" cellpadding="7" cellspacing="7">
+        <tr>
+            <th width="50px">No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Action</th>
+        </tr>
+
+        <% if(user.length){
+for(var i = 0;i < user.length;i++) { %>
+<tr>
+    <td><%=(i+1)%></td>
+    <td><%=user[i].username%></td>
+    <td><%=user[i].email%></td>
+    <td><%=user[i].password%></td>
+    <td>
+        <a class="a-inside edit" href="/edit-user/<%=user[i].id%>">Edit</a>
+        <a class="a-inside delete" href="javascript:void(0)" onClick="deleteUser(<%=user[i].id%>)">Delete</a>
+    </td>
+</tr>
+<% }
+}else{ %>
+<tr>
+    <td colspan="5">No Data</td>
+</tr>
+<% } %>
+    </table>
+</div>
+</body>
+</html>

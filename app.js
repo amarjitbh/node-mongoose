@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var index = require('./routes/index');
 mongoose.connect('mongodb://localhost/appOne');
+
 var users = require('./routes/users');
   
 var app = express();
