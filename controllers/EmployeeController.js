@@ -45,6 +45,7 @@ employeeController.save = function(req, res) {
 
 employeeController.edit = function(req, res) {
   Employee.findOne({_id: req.params.id}).exec(function (err, employee) {
+
     if (err) {
       console.log("Error:", err);
     }

@@ -45,4 +45,16 @@ usersController.edit = function (req,res,next) {
         }
     })
 }
+usersController.update = function (req,res,next) {
+    var id = req.params.user_id;
+    usersData = new users(req.body);
+    usersData.update({_id : req.params.user_id}).exec(function (err,user) {
+        if(err){
+            console.log('errors='+err);
+        }else{
+            console.log(user);
+            res.render('../views/add',{'title' : 'ADD-USER','user' : user});
+        }
+    })
+}
 module.exports = usersController;

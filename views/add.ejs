@@ -6,20 +6,22 @@
     <link rel="stylesheet" href="/../css/style.css">
 </head>
 <body>
-<form method="post" action="save">
+<form method="post" action="<%=  ( typeof user !== 'undefined' && user ) ? '/users/update/'+user.id : 'save' %>">
     <table cellpadding="11">
         <tr>
-            <td class="label">Name</td><td>: <input type="text" name="username" value="<%=user.username%>"></td>
+            <td class="label">Name</td><td>: <input type="text" name="username" value="<%=  ( typeof user !== 'undefined' && user ) ? user.username : '' %>"></td>
         </tr>
         <tr>
-            <td class="label">Email</td><td>: <input type="text" name="email" value="<%=user.email%>"></td>
+            <td class="label">Email</td><td>: <input type="text" name="email" value="<%=  ( typeof user !== 'undefined' && user ) ? user.email : '' %>"></td>
         </tr>
         <tr>
-            <td class="label">Phone</td><td>: <input type="number" name="phone" value="<%=user.phone%>"></td>
+            <td class="label">Phone</td><td>: <input type="text" name="phone" value="<%=  ( typeof user !== 'undefined' && user ) ? user.phone : '' %> "></td>
         </tr>
+        <% if(typeof user == 'undefined'){ %>
         <tr>
             <td class="label">Password</td><td>: <input type="password" name="password"></td>
         </tr>
+        <% } %>
         <tr>
             <td class="label"></td>
             <td>
