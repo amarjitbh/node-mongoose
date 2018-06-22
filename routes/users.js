@@ -7,5 +7,6 @@ router.get('/', userController.list);
 router.get('/create',userController.create);
 router.post('/save',userController.save);
 router.get('/edit/:user_id',userController.edit);
-router.get('/update/:user_id',userController.update);
+router.post('/update/:user_id',userController.update);
+router.get('/delete/:user_id',userController.delete);
 module.exports = router;

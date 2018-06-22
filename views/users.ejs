@@ -14,6 +14,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Password</th>
+            <th>Phone</th>
             <th>Action</th>
         </tr>
 
@@ -24,9 +25,10 @@ for(var i = 0;i < user.length;i++) { %>
     <td><%=user[i].username%></td>
     <td><%=user[i].email%></td>
     <td><%=user[i].password%></td>
+    <td><%=user[i].phone%></td>
     <td>
         <a class="a-inside edit" href="users/edit/<%=user[i].id%>">Edit</a>
-        <a class="a-inside delete" href="javascript:void(0)" onClick="deleteUser(<%=user[i].id%>)">Delete</a>
+        <a class="a-inside delete" href="users/delete/<%=user[i].id%>" onClick="deleteUser(<%=user[i].id%>)">Delete</a>
     </td>
 </tr>
 <% }
