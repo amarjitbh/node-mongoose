@@ -26,6 +26,15 @@ usersController.create = function (req,res) {
 }
 /**********   Save new users     *************/
 usersController.save = function (req,res){
+    req.check("email" , "Invalid email address").isEmail();
+    var errors = req.validationErrors();
+    console.log(errors);
+    ///if(errors){
+        //req.session.errors = errors;
+        //req.session.success = false;
+       // res.redirect('/users/create');
+
+    //}
     var usersData = new users(req.body);
     usersData.save(function (err){
        if(err){

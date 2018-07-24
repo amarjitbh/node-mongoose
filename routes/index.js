@@ -5,9 +5,9 @@ var expSession = require("express-session");
 /*****   Authentications Systems ******/
 var AuthController = require('../controllers/AuthController');
 /* GET home page. */
-/*router.get('/', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('index', { title: 'Amarjit Singh' });
-});*/
+});
 /*****  Login-view  ****/
 
 var Authentication = (req,res,next) => {

@@ -1,4 +1,4 @@
-var express = require('express');
+const express = require('express');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var path = require('path');
@@ -6,6 +6,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var expressValidator  = require('express-validator');
+var expressSession    = require('express-session');
 var index = require('./routes/index');
 mongoose.connect('mongodb://localhost/appOne');
 
@@ -23,6 +25,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(expressValidator());
+app.use(expressSession({secret : 'Max',saveUninitialized : false , resave : false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
