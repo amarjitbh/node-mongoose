@@ -9,7 +9,12 @@ var bodyParser = require('body-parser');
 var expressValidator  = require('express-validator');
 var expressSession    = require('express-session');
 var index = require('./routes/index');
-mongoose.connect('mongodb://localhost/appOne');
+//mongoose.connect('mongodb://localhost/appOne');
+mongoose.connect('mongodb://localhost/HelloMongoose');
+
+/*process.env.MONGOLAB_URI ||
+process.env.MONGOHQ_URL ||
+'mongodb://localhost/HelloMongoose';*/
 
 var users = require('./routes/users');
   
